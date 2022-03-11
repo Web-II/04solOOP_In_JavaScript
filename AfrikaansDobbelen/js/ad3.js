@@ -130,7 +130,7 @@ function init() {
   const spel = new Spel(spelers);
   toHtml(spel);
   document.getElementById('play').onclick = function () {
-    spel.spelerAanZet.speel();
+    spel.speel();
     toHtml(spel);
   };
   document.getElementById('scorebord').onclick = function () {
