@@ -11,7 +11,7 @@ class Dobbelsteen {
 }
 
 function toHtml(dobbelsteen) {
-  document.getElementById('1').src = `images/Dice${dobbelsteen.aantalOgen}.png`;
+  document.getElementById("1").src = `images/Dice${dobbelsteen.aantalOgen}.png`;
 }
 
 function init() {
@@ -23,7 +23,7 @@ function init() {
 window.onload = init;
 
 /***************************************************************************************** */
-/* ondestaand stukje code heb je pas in de laatste stap van de oefening nodig (zie opgave) */
+/* onderstaand stukje code heb je pas in de laatste stap van de oefening nodig (zie opgave) */
 /***************************************************************************************** */
 // if (document.getElementById('play').value === 'Rol dobbelstenen') {
 // 	document.getElementById('play').value = 'Volgende speler';
