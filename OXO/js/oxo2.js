@@ -1,21 +1,22 @@
-import { Spel } from './spel.js';
+import { Spel } from "./spel.js";
 
 function toHtml(spel) {
+  const { spelbord, tePlaatsenSymbool } = spel;
   for (let rij = 0; rij < 3; rij++) {
     for (let kol = 0; kol < 3; kol++) {
-      const cel = spel.spelbord.bord[rij][kol];
+      const cel = spelbord.bord[rij][kol];
       const id = (rij + 1).toString() + (kol + 1).toString();
-      document.getElementById(id).src = `images/${cel ? cel : 'wit'}.png`;
+      document.getElementById(id).src = `images/${cel ? cel : "wit"}.png`;
     }
   }
   document.getElementById(
-    'message'
-  ).innerHTML = `Speler ${spel.tePlaatsenSymbool} is aan de beurt`;
+    "message"
+  ).innerHTML = `Speler ${tePlaatsenSymbool} is aan de beurt`;
 }
 
 function init() {
   const spel = new Spel();
-  const imgElementen = document.getElementsByTagName('img');
+  const imgElementen = document.getElementsByTagName("img");
   for (const img of imgElementen) {
     img.onclick = function () {
       const rij = this.id[0] - 1;

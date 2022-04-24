@@ -1,10 +1,10 @@
-import { Spelbord } from './spelbord.js';
+import { Spelbord } from "./spelbord.js";
 
 export class Spel {
   #spelbord = new Spelbord();
-  #tePlaatsenSymbool = 'O';
-  #geplaatsteSymbool = 'X';
-  #winnaarsSymbool = '';
+  #tePlaatsenSymbool = "O";
+  #geplaatsteSymbool = "X";
+  #winnaarsSymbool = "";
 
   plaatsSymbool(rij, kol) {
     if (!this.isEindeSpel) {
@@ -12,7 +12,7 @@ export class Spel {
         this.spelbord.plaatsSymbool(this.tePlaatsenSymbool, rij, kol);
         [this.#tePlaatsenSymbool, this.#geplaatsteSymbool] = [
           this.geplaatsteSymbool,
-          this.tePlaatsenSymbool
+          this.tePlaatsenSymbool,
         ];
         if (this.spelbord.bevatDrieOpEenRij(this.geplaatsteSymbool, rij, kol))
           this.#winnaarsSymbool = this.geplaatsteSymbool;

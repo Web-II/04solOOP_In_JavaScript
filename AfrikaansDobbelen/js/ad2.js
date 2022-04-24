@@ -51,19 +51,20 @@ class Speler {
 }
 
 function toHtml(speler) {
+  const { dobbelstenen, naam, score } = speler;
   for (let i = 0; i < Speler.aantalDobbelstenen; i++) {
     document.getElementById(
       i + 1
-    ).src = `images/Dice${speler.dobbelstenen[i].aantalOgen}.png`;
+    ).src = `images/Dice${dobbelstenen[i].aantalOgen}.png`;
   }
-  document.getElementById('speler').innerText = `Speler: ${speler.naam}`;
-  document.getElementById('score').innerText = `Score: ${speler.score}`;
+  document.getElementById("speler").innerText = `Speler: ${naam}`;
+  document.getElementById("score").innerText = `Score: ${score}`;
 }
 
 function init() {
-  const speler = new Speler('Kirikou');
+  const speler = new Speler("Kirikou");
   toHtml(speler);
-  document.getElementById('play').onclick = function () {
+  document.getElementById("play").onclick = function () {
     speler.speel();
     toHtml(speler);
   };
