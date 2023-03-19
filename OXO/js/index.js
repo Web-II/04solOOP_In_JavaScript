@@ -1,4 +1,4 @@
-import OxoComponent from "./OxoComponent3.js";
+import OxoComponent from './OxoComponent3.js';
 
 function init() {
   const component = new OxoComponent();

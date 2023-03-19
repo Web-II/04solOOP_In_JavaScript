@@ -1,10 +1,10 @@
-import Spel from "./Spel.js";
+import Spel from './Spel.js';
 export default class OxoComponent {
   #spel;
 
   constructor() {
     this.#spel = new Spel();
-    const imgElementen = document.getElementsByTagName("img");
+    const imgElementen = document.getElementsByTagName('img');
     for (const img of imgElementen) {
       img.onclick = () => {
         const [rij, kol] = img.id;
@@ -16,26 +16,25 @@ export default class OxoComponent {
   }
 
   #toHtml() {
-    const { spelbord, tePlaatsenSymbool, winnaarsSymbool, isEindeSpel } =
-      this.#spel;
+    const { tePlaatsenSymbool, winnaarsSymbool, isEindeSpel } = this.#spel;
     for (let rij = 0; rij < 3; rij++) {
       for (let kol = 0; kol < 3; kol++) {
-        const symbool = spelbord.geefSymbool(rij, kol);
-        const id = [rij + 1, kol + 1].join("");
+        const symbool = this.#spel.geefSymbool(rij, kol);
+        const id = [rij + 1, kol + 1].join('');
         document.getElementById(id).src = `./images/${
-          symbool ? symbool : "wit"
+          symbool ? symbool : 'wit'
         }.png`;
       }
     }
     if (winnaarsSymbool)
       document.getElementById(
-        "message"
+        'message'
       ).innerText = `Proficiat, speler ${winnaarsSymbool} wint`;
     else if (isEindeSpel)
-      document.getElementById("message").innerText = `Gelijkspel!`;
+      document.getElementById('message').innerText = `Gelijkspel!`;
     else
       document.getElementById(
-        "message"
+        'message'
       ).innerText = `Speler ${tePlaatsenSymbool} is aan de beurt`;
   }
 }

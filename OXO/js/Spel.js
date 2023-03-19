@@ -1,31 +1,31 @@
-import Spelbord from "./Spelbord.js";
+import Spelbord from './Spelbord.js';
 
 export default class Spel {
   #spelbord = new Spelbord();
-  #tePlaatsenSymbool = "O";
-  #geplaatsteSymbool = "X";
-  #winnaarsSymbool = "";
+  #tePlaatsenSymbool = 'O';
+  #geplaatsteSymbool = 'X';
+  #winnaarsSymbool = '';
 
   plaatsSymbool(rij, kol) {
     if (!this.isEindeSpel) {
-      if (this.spelbord.isVrij(rij, kol)) {
-        this.spelbord.plaatsSymbool(this.tePlaatsenSymbool, rij, kol);
+      if (this.#spelbord.isVrij(rij, kol)) {
+        this.#spelbord.plaatsSymbool(this.tePlaatsenSymbool, rij, kol);
         [this.#tePlaatsenSymbool, this.#geplaatsteSymbool] = [
           this.geplaatsteSymbool,
           this.tePlaatsenSymbool,
         ];
-        if (this.spelbord.bevatDrieOpEenRij(this.geplaatsteSymbool, rij, kol))
+        if (this.#spelbord.bevatDrieOpEenRij(this.geplaatsteSymbool, rij, kol))
           this.#winnaarsSymbool = this.geplaatsteSymbool;
       }
     }
   }
 
-  get isEindeSpel() {
-    return this.spelbord.isVolzet || this.winnaarsSymbool;
+  geefSymbool(rij, kolom) {
+    return this.#spelbord.geefSymbool(rij, kolom);
   }
 
-  get spelbord() {
-    return this.#spelbord;
+  get isEindeSpel() {
+    return this.#spelbord.isVolzet || this.winnaarsSymbool;
   }
 
   get winnaarsSymbool() {

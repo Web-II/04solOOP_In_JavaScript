@@ -10,10 +10,6 @@ export default class Spelbord {
     }
   }
 
-  get bord() {
-    return this.#bord;
-  }
-
   plaatsSymbool(symbool, rij, kol) {
     this.#bord[rij][kol] = symbool;
   }
